@@ -1,0 +1,2 @@
+package ru.pazik98.HawkingBrosTestTask.service;public class GismeteoService {
+}
