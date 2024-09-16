@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Value;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Value
 @Builder
@@ -17,7 +18,7 @@ public class MessageB {
     public static MessageB from(MessageA messageA, CurrentWeatherData currentWeatherData) {
         return MessageB.builder()
                 .txt(messageA.getMsg())
-                .createdDt(currentWeatherData.getDateTime())
+                .createdDt(LocalDateTime.parse(currentWeatherData.getDateTime().format(DateTimeFormatter.ISO_INSTANT)))
                 .currentTemp(currentWeatherData.getTemperature())
                 .build();
     }
